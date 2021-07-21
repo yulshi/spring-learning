@@ -8,13 +8,13 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class PaymentFallbackService implements PaymentService {
-  @Override
-  public String paymentInfoOk(Integer id) {
-    return "PaymentFallbackService#paymentInfoOk";
-  }
+    @Override
+    public String paymentInfoOk(Integer id) {
+        return "PaymentFallbackService#paymentInfoOk";
+    }
 
-  @Override
-  public String paymentInfoTimeout(Integer id) {
-    return "PaymentFallbackService#paymentInfoTimeout";
-  }
+    @Override
+    public String paymentInfoTimeout(Integer id) {
+        return "PaymentFallbackService#paymentInfoTimeout";
+    }
 }

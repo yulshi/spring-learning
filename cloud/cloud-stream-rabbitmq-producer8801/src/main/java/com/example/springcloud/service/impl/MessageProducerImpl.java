@@ -16,13 +16,13 @@ import java.util.UUID;
 @EnableBinding(Source.class)
 public class MessageProducerImpl implements MessageProducer {
 
-  @Resource(name = "output")
-  private MessageChannel channel;
+    @Resource(name = "output")
+    private MessageChannel channel;
 
-  @Override
-  public String send() {
-    String sid = UUID.randomUUID().toString();
-    channel.send(MessageBuilder.withPayload(sid).build());
-    return sid;
-  }
+    @Override
+    public String send() {
+        String sid = UUID.randomUUID().toString();
+        channel.send(MessageBuilder.withPayload(sid).build());
+        return sid;
+    }
 }

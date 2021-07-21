@@ -20,24 +20,24 @@ import javax.sql.DataSource;
 @ComponentScan("com.example.tx")
 public class TxConfig {
 
-  @Bean
-  public DataSource dataSource() throws Exception {
-    ComboPooledDataSource dataSource = new ComboPooledDataSource();
-    dataSource.setUser("root");
-    dataSource.setPassword("welcome1");
-    dataSource.setDriverClass("com.mysql.jdbc.Driver");
-    dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/acme");
-    return dataSource;
-  }
+    @Bean
+    public DataSource dataSource() throws Exception {
+        ComboPooledDataSource dataSource = new ComboPooledDataSource();
+        dataSource.setUser("root");
+        dataSource.setPassword("welcome1");
+        dataSource.setDriverClass("com.mysql.jdbc.Driver");
+        dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/acme");
+        return dataSource;
+    }
 
-  @Bean
-  public JdbcTemplate jdbcTemplate() throws Exception {
-    return new JdbcTemplate(dataSource());
-  }
+    @Bean
+    public JdbcTemplate jdbcTemplate() throws Exception {
+        return new JdbcTemplate(dataSource());
+    }
 
-  @Bean
-  PlatformTransactionManager transactionManager() throws Exception {
-    return new DataSourceTransactionManager(dataSource());
-  }
+    @Bean
+    PlatformTransactionManager transactionManager() throws Exception {
+        return new DataSourceTransactionManager(dataSource());
+    }
 
 }

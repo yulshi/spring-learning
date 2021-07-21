@@ -13,7 +13,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableAsync
 @EnableScheduling
 public class TaskMain {
-  public static void main(String[] args) {
-    SpringApplication.run(TaskMain.class, args);
-  }
+    public static void main(String[] args) {
+        SpringApplication.run(TaskMain.class, args);
+    }
 }

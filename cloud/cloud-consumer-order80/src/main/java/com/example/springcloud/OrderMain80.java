@@ -15,8 +15,8 @@ import org.springframework.cloud.netflix.ribbon.RibbonClient;
 @RibbonClient(name = "CLOUD-PAYMENT-SERVICE", configuration = MyRuleConfig.class)
 public class OrderMain80 {
 
-  public static void main(String[] args) {
-    SpringApplication.run(OrderMain80.class, args);
-  }
+    public static void main(String[] args) {
+        SpringApplication.run(OrderMain80.class, args);
+    }
 
 }

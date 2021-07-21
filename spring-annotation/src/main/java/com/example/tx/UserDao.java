@@ -11,17 +11,17 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class UserDao {
 
-  private JdbcTemplate jdbcTemplate;
+    private JdbcTemplate jdbcTemplate;
 
-  public UserDao(JdbcTemplate jdbcTemplate) {
-    this.jdbcTemplate = jdbcTemplate;
-  }
+    public UserDao(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
-  public void insert() {
+    public void insert() {
 
-    String sql = "insert into temperatures(sensor,temperature) values(? ,?)";
-    jdbcTemplate.update(sql, "sensor-7", 100.0);
+        String sql = "insert into temperatures(sensor,temperature) values(? ,?)";
+        jdbcTemplate.update(sql, "sensor-7", 100.0);
 
-  }
+    }
 
 }

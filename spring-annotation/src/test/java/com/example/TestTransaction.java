@@ -11,16 +11,16 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  */
 public class TestTransaction {
 
-  @Test
-  public void testTx() {
+    @Test
+    public void testTx() {
 
-    AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(TxConfig.class);
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(TxConfig.class);
 
-    UserService userService = context.getBean(UserService.class);
-    userService.insertTemp();
+        UserService userService = context.getBean(UserService.class);
+        userService.insertTemp();
 
-    context.close();
+        context.close();
 
-  }
+    }
 
 }

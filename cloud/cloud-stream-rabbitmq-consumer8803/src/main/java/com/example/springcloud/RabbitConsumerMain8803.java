@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 public class RabbitConsumerMain8803 {
-  public static void main(String[] args) {
-    SpringApplication.run(RabbitConsumerMain8803.class, args);
-  }
+    public static void main(String[] args) {
+        SpringApplication.run(RabbitConsumerMain8803.class, args);
+    }
 }

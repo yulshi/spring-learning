@@ -14,12 +14,12 @@ import javax.annotation.Resource;
 @RestController
 public class SendMessageController {
 
-  @Resource
-  private MessageProducer producer;
+    @Resource
+    private MessageProducer producer;
 
-  @GetMapping("/send")
-  public String sendMessage() {
-    return producer.send();
-  }
+    @GetMapping("/send")
+    public String sendMessage() {
+        return producer.send();
+    }
 
 }

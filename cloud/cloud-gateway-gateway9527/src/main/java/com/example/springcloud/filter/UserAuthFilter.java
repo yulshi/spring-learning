@@ -15,20 +15,20 @@ import reactor.core.publisher.Mono;
 @Component
 public class UserAuthFilter implements GlobalFilter, Ordered {
 
-  @Override
-  public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
+    @Override
+    public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
 
-    String username = exchange.getRequest().getQueryParams().getFirst("username");
-    if (username == null) {
-      exchange.getResponse().setStatusCode(HttpStatus.NOT_ACCEPTABLE);
-      return exchange.getResponse().setComplete();
+        String username = exchange.getRequest().getQueryParams().getFirst("username");
+        if (username == null) {
+            exchange.getResponse().setStatusCode(HttpStatus.NOT_ACCEPTABLE);
+            return exchange.getResponse().setComplete();
+        }
+        // hand over to next filter to process
+        return chain.filter(exchange);
     }
-    // hand over to next filter to process
-    return chain.filter(exchange);
-  }
 
-  @Override
-  public int getOrder() {
-    return 0;
-  }
+    @Override
+    public int getOrder() {
+        return 0;
+    }
 }

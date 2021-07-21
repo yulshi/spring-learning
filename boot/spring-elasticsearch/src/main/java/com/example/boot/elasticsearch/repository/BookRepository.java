@@ -13,6 +13,6 @@ import java.util.List;
 //@Repository
 public interface BookRepository extends ElasticsearchRepository<Book, Integer> {
 
-  List<Book> findBooksByName(String name);
+    List<Book> findBooksByName(String name);
 
 }

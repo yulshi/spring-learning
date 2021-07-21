@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserController {
 
-  private final UserService userService;
+    private final UserService userService;
 
-  public UserController(UserService userService) {
-    this.userService = userService;
-  }
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
-  @GetMapping("/user/ticket/buy")
-  public String buyTicket() {
-    return userService.buyTicket();
-  }
+    @GetMapping("/user/ticket/buy")
+    public String buyTicket() {
+        return userService.buyTicket();
+    }
 
 }

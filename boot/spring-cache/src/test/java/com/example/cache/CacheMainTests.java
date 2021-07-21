@@ -19,24 +19,24 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class CacheMainTests {
 
-  @Autowired
-  EmployeeMapper employeeMapper;
+    @Autowired
+    EmployeeMapper employeeMapper;
 
-  @Autowired
-  RedisTemplate<Object, Object> redisTemplate;
+    @Autowired
+    RedisTemplate<Object, Object> redisTemplate;
 
-  @Test
-  public void testEmployeeMapper() {
-    Employee employee = employeeMapper.getEmployee(1);
-    System.out.println(employee);
-  }
+    @Test
+    public void testEmployeeMapper() {
+        Employee employee = employeeMapper.getEmployee(1);
+        System.out.println(employee);
+    }
 
-  @Test
-  public void testRedis() {
-    redisTemplate.setKeySerializer(new StringRedisSerializer());
-    redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<Employee>(Employee.class));
-    Employee employee = employeeMapper.getEmployee(1);
-    redisTemplate.opsForValue().set("emp-01", employee );
-  }
+    @Test
+    public void testRedis() {
+        redisTemplate.setKeySerializer(new StringRedisSerializer());
+        redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<Employee>(Employee.class));
+        Employee employee = employeeMapper.getEmployee(1);
+        redisTemplate.opsForValue().set("emp-01", employee);
+    }
 
 }

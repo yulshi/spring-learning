@@ -6,7 +6,7 @@ package com.example.aop.servcie;
  */
 public class Calculator {
 
-  public int div(int arg1, int arg2) {
-    return arg1 / arg2;
-  }
+    public int div(int arg1, int arg2) {
+        return arg1 / arg2;
+    }
 }

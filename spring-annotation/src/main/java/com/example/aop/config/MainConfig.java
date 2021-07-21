@@ -14,14 +14,14 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @Configuration
 public class MainConfig {
 
-  @Bean
-  Calculator calculator() {
-    return new Calculator();
-  }
+    @Bean
+    Calculator calculator() {
+        return new Calculator();
+    }
 
-  @Bean
-  LogAspect logAspect() {
-    return new LogAspect();
-  }
+    @Bean
+    LogAspect logAspect() {
+        return new LogAspect();
+    }
 
 }

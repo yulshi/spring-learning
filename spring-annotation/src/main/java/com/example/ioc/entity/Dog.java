@@ -15,22 +15,22 @@ import javax.annotation.PreDestroy;
 @Slf4j
 public class Dog {
 
-  private final ApplicationContext context;
+    private final ApplicationContext context;
 
-  public Dog(ApplicationContext context) {
-    log.info("constructing dog");
-    this.context = context;
-  }
+    public Dog(ApplicationContext context) {
+        log.info("constructing dog");
+        this.context = context;
+    }
 
-  @PostConstruct
-  public void init() {
-    System.out.println("Initiating..." + context);
-  }
+    @PostConstruct
+    public void init() {
+        System.out.println("Initiating..." + context);
+    }
 
-  @PreDestroy
-  public void destroy() {
-    log.info("Destroying...");
-  }
+    @PreDestroy
+    public void destroy() {
+        log.info("Destroying...");
+    }
 
 //  @Override
 //  public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {

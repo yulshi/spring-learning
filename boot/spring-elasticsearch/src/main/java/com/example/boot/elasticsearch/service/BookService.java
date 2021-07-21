@@ -11,16 +11,16 @@ import org.springframework.data.elasticsearch.core.query.IndexQueryBuilder;
  */
 public class BookService {
 
-  private final ElasticsearchTemplate esTemplate;
+    private final ElasticsearchTemplate esTemplate;
 
-  public BookService(ElasticsearchTemplate esTemplate) {
-    this.esTemplate = esTemplate;
-  }
+    public BookService(ElasticsearchTemplate esTemplate) {
+        this.esTemplate = esTemplate;
+    }
 
-  public void addArtical(Artical artical) {
-    IndexQuery indexQuery = new IndexQueryBuilder().withObject(artical).build();
-    esTemplate.index(indexQuery);
-  }
+    public void addArtical(Artical artical) {
+        IndexQuery indexQuery = new IndexQueryBuilder().withObject(artical).build();
+        esTemplate.index(indexQuery);
+    }
 
 
 }

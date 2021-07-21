@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 public class DubboTicketMain {
-  public static void main(String[] args) {
-    SpringApplication.run(DubboTicketMain.class, args);
-  }
+    public static void main(String[] args) {
+        SpringApplication.run(DubboTicketMain.class, args);
+    }
 }

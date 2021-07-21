@@ -6,14 +6,14 @@ package com.example;
  */
 public class Main {
 
-  public static void main(String[] args) {
+    public static void main(String[] args) {
 
-    int i = 2;
+        int i = 2;
 
-    i = i++;
+        i = i++;
 
-    System.out.println(i);
+        System.out.println(i);
 
-  }
+    }
 
 }

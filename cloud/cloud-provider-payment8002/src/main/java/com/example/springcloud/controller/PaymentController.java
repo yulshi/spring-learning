@@ -17,61 +17,61 @@ import javax.annotation.Resource;
 @RestController
 public class PaymentController {
 
-  @Value("${server.port}")
-  private String serverPort;
+    @Value("${server.port}")
+    private String serverPort;
 
-  @Resource
-  private PaymentService paymentService;
+    @Resource
+    private PaymentService paymentService;
 
-  @PostMapping("/payment/create")
-  public CommonResult<Integer> create(@RequestBody Payment payment) {
+    @PostMapping("/payment/create")
+    public CommonResult<Integer> create(@RequestBody Payment payment) {
 
-    log.info("payment being add in payment: " + payment.getSerial());
+        log.info("payment being add in payment: " + payment.getSerial());
 
-    int result = paymentService.create(payment);
-    log.debug("result of insertion: " + result);
+        int result = paymentService.create(payment);
+        log.debug("result of insertion: " + result);
 
-    if (result > 0) {
-      return new CommonResult<Integer>(200, "insert successfully thru " + serverPort, result);
-    } else {
-      return new CommonResult<>(444, "failed at " + serverPort);
-    }
-  }
-
-  @GetMapping("/payment/get/{id}")
-  public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id) {
-
-    Payment payment = paymentService.getPaymentById(id);
-
-    if (payment != null) {
-      return new CommonResult(200, "success thru " + serverPort, payment);
-    } else {
-      return new CommonResult<>(444, "fail to get thru " + serverPort + id);
+        if (result > 0) {
+            return new CommonResult<Integer>(200, "insert successfully thru " + serverPort, result);
+        } else {
+            return new CommonResult<>(444, "failed at " + serverPort);
+        }
     }
 
-  }
+    @GetMapping("/payment/get/{id}")
+    public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id) {
 
-  @GetMapping("/payment/lb")
-  public String serverPort() {
-    return serverPort;
-  }
+        Payment payment = paymentService.getPaymentById(id);
 
-  @GetMapping("/payment/timeout")
-  public String timeout() {
+        if (payment != null) {
+            return new CommonResult(200, "success thru " + serverPort, payment);
+        } else {
+            return new CommonResult<>(444, "fail to get thru " + serverPort + id);
+        }
 
-    try {
-      Thread.sleep(3000);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
     }
 
-    return serverPort;
+    @GetMapping("/payment/lb")
+    public String serverPort() {
+        return serverPort;
+    }
 
-  }
+    @GetMapping("/payment/timeout")
+    public String timeout() {
 
-  @GetMapping("/payment/zipkin")
-  public String zipkin() {
-    return "This is for testing zipkin: " + serverPort;
-  }
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        return serverPort;
+
+    }
+
+    @GetMapping("/payment/zipkin")
+    public String zipkin() {
+        return "This is for testing zipkin: " + serverPort;
+    }
 
 }

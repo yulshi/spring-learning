@@ -5,5 +5,5 @@ package com.example.springcloud.service;
  * @create 2020/05/30 12:44
  */
 public interface MessageProducer {
-  String send();
+    String send();
 }

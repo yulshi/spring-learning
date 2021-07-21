@@ -16,31 +16,31 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class PaymentController {
 
-  @Autowired
-  private PaymentService service;
+    @Autowired
+    private PaymentService service;
 
-  @Value("${server.port}")
-  private String serverPort;
+    @Value("${server.port}")
+    private String serverPort;
 
-  @GetMapping("/payment/hystrix/ok/{id}")
-  public String paymentInfoOk(@PathVariable("id") Integer id) {
-    String result = service.paymentInfoOK(id);
-    log.info("*****result: " + result);
-    return result;
-  }
+    @GetMapping("/payment/hystrix/ok/{id}")
+    public String paymentInfoOk(@PathVariable("id") Integer id) {
+        String result = service.paymentInfoOK(id);
+        log.info("*****result: " + result);
+        return result;
+    }
 
-  @GetMapping("/payment/hystrix/timeout/{id}")
-  public String paymentInfoTimeout(@PathVariable("id") Integer id) {
-    String result = service.paymentInfoTimeout(id);
-    log.info("*****result: " + result);
-    return result;
-  }
+    @GetMapping("/payment/hystrix/timeout/{id}")
+    public String paymentInfoTimeout(@PathVariable("id") Integer id) {
+        String result = service.paymentInfoTimeout(id);
+        log.info("*****result: " + result);
+        return result;
+    }
 
-  @GetMapping("/payment/hystrix/circuitbreaker/{id}")
-  public String paymentCircuitBreaker(@PathVariable("id") Integer id) {
-    String result = service.paymentWithCircuitBreaker(id);
-    return result;
-  }
+    @GetMapping("/payment/hystrix/circuitbreaker/{id}")
+    public String paymentCircuitBreaker(@PathVariable("id") Integer id) {
+        String result = service.paymentWithCircuitBreaker(id);
+        return result;
+    }
 
 
 }

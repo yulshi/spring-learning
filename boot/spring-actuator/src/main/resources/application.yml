@@ -1,0 +1,40 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: spring-actuator
+
+management:
+#    server:
+#      port: 8081 # 单独的管理端口
+#      address: "127.0.0.1"
+  endpoints:
+    web:
+      exposure:
+        include: "info,health,mappings,beans,metrics"
+      cors:
+        allowed-origins: "https://example.com"
+        allowed-methods: "GET,POST"
+      base-path: "/_cat" # 指定/_cat作为上下文，而不是默认的/actuator
+  endpoint:
+    shutdown:
+      enabled: true
+    health:
+      show-details: always
+      show-components: always
+      group:
+        custom: # 定义自己的分组：可以通过http://localhost:8080/actuator/health/custom访问
+          include: "db"
+#      probes:
+#        enabled: true
+#      livenessstate:
+#        enabled: true
+#      readinessstate:
+#        enabled: true
+info: # 在配置文件中配置可以通过/actuator/info访问的信息
+  app:
+    encoding: "@project.build.sourceEncoding@"
+    java:
+      source: "@java.version@"
+      target: "@java.version@"

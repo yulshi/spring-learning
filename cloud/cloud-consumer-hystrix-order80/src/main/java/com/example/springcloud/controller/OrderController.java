@@ -20,27 +20,27 @@ import javax.annotation.Resource;
 @DefaultProperties(defaultFallback = "globalFallback")
 public class OrderController {
 
-  @Resource
-  private PaymentService paymentService;
+    @Resource
+    private PaymentService paymentService;
 
-  @GetMapping("/consumer/payment/hystrix/ok/{id}")
-  public String goodInvoke(@PathVariable("id") Integer id) {
-    return paymentService.paymentInfoOk(id);
-  }
+    @GetMapping("/consumer/payment/hystrix/ok/{id}")
+    public String goodInvoke(@PathVariable("id") Integer id) {
+        return paymentService.paymentInfoOk(id);
+    }
 
-  @HystrixCommand
-  @GetMapping("/consumer/payment/hystrix/timeout/{id}")
-  public String badInvoke(@PathVariable Integer id) {
-    log.info("invoking payment service#paymentInfoTimeout ...");
-    return paymentService.paymentInfoTimeout(id);
-  }
+    @HystrixCommand
+    @GetMapping("/consumer/payment/hystrix/timeout/{id}")
+    public String badInvoke(@PathVariable Integer id) {
+        log.info("invoking payment service#paymentInfoTimeout ...");
+        return paymentService.paymentInfoTimeout(id);
+    }
 
-  private String fallback(Integer id) {
-    return "consumer-fallback method is invoked";
-  }
+    private String fallback(Integer id) {
+        return "consumer-fallback method is invoked";
+    }
 
-  private String globalFallback() {
-    return "consumer-GLOBAL-fallback method is invoked";
-  }
+    private String globalFallback() {
+        return "consumer-GLOBAL-fallback method is invoked";
+    }
 
 }

@@ -18,17 +18,17 @@ import javax.annotation.Resource;
 @Slf4j
 public class OrderController {
 
-  @Resource
-  private PaymentService paymentService;
+    @Resource
+    private PaymentService paymentService;
 
-  @GetMapping("/consumer/payment/get/{id}")
-  public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id) {
-    return paymentService.getPaymentById(id);
-  }
+    @GetMapping("/consumer/payment/get/{id}")
+    public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id) {
+        return paymentService.getPaymentById(id);
+    }
 
-  @GetMapping("/consumer/payment/timeout")
-  public String timeout() {
-    return paymentService.timeout();
-  }
+    @GetMapping("/consumer/payment/timeout")
+    public String timeout() {
+        return paymentService.timeout();
+    }
 
 }

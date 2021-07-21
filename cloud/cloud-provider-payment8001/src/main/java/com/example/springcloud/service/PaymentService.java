@@ -8,8 +8,8 @@ import com.example.springcloud.entities.Payment;
  */
 public interface PaymentService {
 
-  int create(Payment payment);
+    int create(Payment payment);
 
-  Payment getPaymentById(Long id);
+    Payment getPaymentById(Long id);
 
 }

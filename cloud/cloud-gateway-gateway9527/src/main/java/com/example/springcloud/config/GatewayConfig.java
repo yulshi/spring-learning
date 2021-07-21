@@ -12,12 +12,12 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class GatewayConfig {
 
-  @Bean
-  public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
+    @Bean
+    public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
 
-    return builder.routes().route(
-            r -> r.path("/payment/discovery")
-                    .uri("http://localhost:8001")).build();
+        return builder.routes().route(
+                r -> r.path("/payment/discovery")
+                        .uri("http://localhost:8001")).build();
 
-  }
+    }
 }

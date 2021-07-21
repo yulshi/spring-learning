@@ -32,6 +32,9 @@
         <module>cloud-stream-rabbitmq-producer8801</module>
         <module>cloud-stream-rabbitmq-consumer8802</module>
         <module>cloud-stream-rabbitmq-consumer8803</module>
+        <module>clouldalibaba-provider-payment9001</module>
+        <module>couldalibaba-consumer-order80</module>
+        <module>cloudalibaba-config-client3377</module>
     </modules>
 
     <properties>
@@ -116,6 +119,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.2.2.RELEASE</version>
             </plugin>
         </plugins>
     </build>

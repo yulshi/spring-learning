@@ -13,14 +13,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class BookService {
 
-  @Autowired
-  RabbitTemplate rabbitTemplate;
+    @Autowired
+    RabbitTemplate rabbitTemplate;
 
-  @Autowired
-  AmqpAdmin amqpAdmin;
+    @Autowired
+    AmqpAdmin amqpAdmin;
 
-  public void addBook(Book book) {
-    rabbitTemplate.convertAndSend("exchange.direct", "oracle", book);
-  }
+    public void addBook(Book book) {
+        rabbitTemplate.convertAndSend("exchange.direct", "oracle", book);
+    }
 
 }

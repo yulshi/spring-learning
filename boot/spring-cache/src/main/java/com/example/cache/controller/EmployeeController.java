@@ -14,23 +14,23 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class EmployeeController {
 
-  @Autowired
-  EmployeeService employeeService;
+    @Autowired
+    EmployeeService employeeService;
 
-  @GetMapping("/emp/{id}")
-  public Employee getEmployee(@PathVariable("id") Integer id) {
-    Employee emp = employeeService.getEmp2(id);
-    return emp;
-  }
+    @GetMapping("/emp/{id}")
+    public Employee getEmployee(@PathVariable("id") Integer id) {
+        Employee emp = employeeService.getEmp2(id);
+        return emp;
+    }
 
-  @GetMapping("/emp/update")
-  public Employee updateEmployee(Employee employee) {
-    return employeeService.updateEmp(employee);
-  }
+    @GetMapping("/emp/update")
+    public Employee updateEmployee(Employee employee) {
+        return employeeService.updateEmp(employee);
+    }
 
-  @GetMapping("/emp/delete/{id}")
-  public String deleteEmployee(@PathVariable("id") Integer id) {
-    return employeeService.deleteEmp(id);
-  }
+    @GetMapping("/emp/delete/{id}")
+    public String deleteEmployee(@PathVariable("id") Integer id) {
+        return employeeService.deleteEmp(id);
+    }
 
 }

@@ -12,9 +12,9 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class ScheduledService {
 
-//  @Scheduled(cron = "0 * * * * MON-FRI")
-  @Scheduled(cron = "0 * * ? * 0-5")
-  public void scheduledTask() {
-    log.info("a scheduled task is executing...");
-  }
+    //  @Scheduled(cron = "0 * * * * MON-FRI")
+    @Scheduled(cron = "0 * * ? * 0-5")
+    public void scheduledTask() {
+        log.info("a scheduled task is executing...");
+    }
 }

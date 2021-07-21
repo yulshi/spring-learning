@@ -1,0 +1,20 @@
+server:
+  port: 80
+
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: nacos01:8848,nacos02:8848,nacos03:8848
+
+  application:
+    name: nacos-consumer-order
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+feign:
+  sentinel:
+    enabled: true

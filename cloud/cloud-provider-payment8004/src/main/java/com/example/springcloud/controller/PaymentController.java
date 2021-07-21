@@ -15,12 +15,12 @@ import java.util.UUID;
 @Slf4j
 public class PaymentController {
 
-  @Value("${server.port}")
-  private String serverPort;
+    @Value("${server.port}")
+    private String serverPort;
 
-  @GetMapping("/payment/zk")
-  public String paymentZk() {
-    return "spring cloud with zookeeper: " + serverPort + "\t" + UUID.randomUUID().toString();
-  }
+    @GetMapping("/payment/zk")
+    public String paymentZk() {
+        return "spring cloud with zookeeper: " + serverPort + "\t" + UUID.randomUUID().toString();
+    }
 
 }

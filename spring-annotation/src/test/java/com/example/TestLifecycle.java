@@ -13,20 +13,20 @@ import java.util.Map;
  */
 public class TestLifecycle {
 
-  @Test
-  public void testLifecycle() {
+    @Test
+    public void testLifecycle() {
 
-    AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(LifecycleConfig.class);
-    applicationContext.getEnvironment().setActiveProfiles("test");
-    applicationContext.register(LifecycleConfig.class);
-    applicationContext.refresh();
-    Map<String, Dog> beans = applicationContext.getBeansOfType(Dog.class);
-    beans.forEach((k, v) -> {
-      System.out.println(k + ": " + v);
-    });
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(LifecycleConfig.class);
+        applicationContext.getEnvironment().setActiveProfiles("test");
+        applicationContext.register(LifecycleConfig.class);
+        applicationContext.refresh();
+        Map<String, Dog> beans = applicationContext.getBeansOfType(Dog.class);
+        beans.forEach((k, v) -> {
+            System.out.println(k + ": " + v);
+        });
 
-    applicationContext.close();
+        applicationContext.close();
 
-  }
+    }
 
 }

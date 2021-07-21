@@ -16,12 +16,12 @@ import java.util.UUID;
 @Slf4j
 public class PaymentController {
 
-  @Value("${server.port}")
-  private String serverPort;
+    @Value("${server.port}")
+    private String serverPort;
 
-  @GetMapping("/payment/consul")
-  public String consulInfo() {
-    return "Port: " + serverPort + ", " + UUID.randomUUID().toString();
-  }
+    @GetMapping("/payment/consul")
+    public String consulInfo() {
+        return "Port: " + serverPort + ", " + UUID.randomUUID().toString();
+    }
 
 }

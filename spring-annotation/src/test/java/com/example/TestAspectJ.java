@@ -11,19 +11,19 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  */
 public class TestAspectJ {
 
-  @Test
-  public void testCalucator() {
+    @Test
+    public void testCalucator() {
 
-    AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MainConfig.class);
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MainConfig.class);
 
-    Calculator calculator = context.getBean(Calculator.class);
+        Calculator calculator = context.getBean(Calculator.class);
 
-    System.out.println("calculator: " + calculator);
+        System.out.println("calculator: " + calculator);
 
-    calculator.div(6, 3);
+        calculator.div(6, 3);
 
-    context.close();
+        context.close();
 
-  }
+    }
 
 }

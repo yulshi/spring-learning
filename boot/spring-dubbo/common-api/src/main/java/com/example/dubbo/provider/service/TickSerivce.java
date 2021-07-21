@@ -6,6 +6,6 @@ package com.example.dubbo.provider.service;
  */
 public interface TickSerivce {
 
-  public String getTicket();
+    public String getTicket();
 
 }

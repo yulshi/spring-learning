@@ -1,8 +1,8 @@
 spring:
   data:
     elasticsearch:
-#      client:
-#        reactive:
-#          endpoints: localhost:9200
+      #      client:
+      #        reactive:
+      #          endpoints: localhost:9200
       cluster-name: docker-cluster
       cluster-nodes: localhost:9300

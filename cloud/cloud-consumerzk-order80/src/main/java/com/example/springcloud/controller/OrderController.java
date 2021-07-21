@@ -15,15 +15,15 @@ import javax.annotation.Resource;
 @Slf4j
 public class OrderController {
 
-  public static final String INVOKE_URL = "http://cloud-payment-service";
+    public static final String INVOKE_URL = "http://cloud-payment-service";
 
-  @Resource
-  private RestTemplate restTemplate;
+    @Resource
+    private RestTemplate restTemplate;
 
-  @GetMapping("/consumer/payment/zk")
-  public String paymentInfo() {
-    String result = restTemplate.getForObject(INVOKE_URL + "/payment/zk", String.class);
-    return result;
-  }
+    @GetMapping("/consumer/payment/zk")
+    public String paymentInfo() {
+        String result = restTemplate.getForObject(INVOKE_URL + "/payment/zk", String.class);
+        return result;
+    }
 
 }

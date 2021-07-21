@@ -13,16 +13,16 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class AsyncContrller {
 
-  private final AsyncService asyncService;
+    private final AsyncService asyncService;
 
-  public AsyncContrller(AsyncService asyncService) {
-    this.asyncService = asyncService;
-  }
+    public AsyncContrller(AsyncService asyncService) {
+        this.asyncService = asyncService;
+    }
 
-  @GetMapping("/task/async")
-  public String asyncTaks() {
-    asyncService.longtimeRunning();
-    log.info("say 'Aloha' to everyone");
-    return "Aloha";
-  }
+    @GetMapping("/task/async")
+    public String asyncTaks() {
+        asyncService.longtimeRunning();
+        log.info("say 'Aloha' to everyone");
+        return "Aloha";
+    }
 }

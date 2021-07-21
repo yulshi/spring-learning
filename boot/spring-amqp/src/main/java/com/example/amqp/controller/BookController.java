@@ -13,16 +13,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class BookController {
 
-  @Autowired
-  BookService messageSender;
+    @Autowired
+    BookService messageSender;
 
-  @GetMapping("/book/add")
-  public String addBook(Book book) {
-    System.out.println("Preparing to add book: " + book);
-    messageSender.addBook(book);
-    return "success";
-  }
-
+    @GetMapping("/book/add")
+    public String addBook(Book book) {
+        System.out.println("Preparing to add book: " + book);
+        messageSender.addBook(book);
+        return "success";
+    }
 
 
 }

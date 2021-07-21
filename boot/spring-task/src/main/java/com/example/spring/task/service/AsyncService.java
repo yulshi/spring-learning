@@ -13,10 +13,13 @@ import java.util.concurrent.TimeUnit;
 @Service
 @Slf4j
 public class AsyncService {
-  @Async
-  public void longtimeRunning() {
-    log.info("Start a long-running task...");
-    try {TimeUnit.SECONDS.sleep(3);} catch (InterruptedException e) {}
-    log.info("The long-running task finished");
-  }
+    @Async
+    public void longtimeRunning() {
+        log.info("Start a long-running task...");
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+        }
+        log.info("The long-running task finished");
+    }
 }

@@ -15,28 +15,28 @@ import javax.mail.MessagingException;
 @RestController
 public class MailController {
 
-  private final MailService mailService;
+    private final MailService mailService;
 
-  public MailController(MailService mailService) {
-    this.mailService = mailService;
-  }
+    public MailController(MailService mailService) {
+        this.mailService = mailService;
+    }
 
-  @GetMapping("/task/mail/clear/{to}")
-  public String sendClearText(@PathVariable("to") String to) {
-    mailService.sendClearText(to);
-    return "mail sent";
-  }
+    @GetMapping("/task/mail/clear/{to}")
+    public String sendClearText(@PathVariable("to") String to) {
+        mailService.sendClearText(to);
+        return "mail sent";
+    }
 
-  @GetMapping("/task/mail/html/{to}")
-  public String sendHtml(@PathVariable("to") String to) throws MessagingException {
-    mailService.sendHtmlWithAttach(to);
-    return "mail sent";
-  }
+    @GetMapping("/task/mail/html/{to}")
+    public String sendHtml(@PathVariable("to") String to) throws MessagingException {
+        mailService.sendHtmlWithAttach(to);
+        return "mail sent";
+    }
 
-  @ExceptionHandler
-  public String catchException(Exception e) {
-    System.out.println(e);
-    return "exception occurred: " + e;
-  }
+    @ExceptionHandler
+    public String catchException(Exception e) {
+        System.out.println(e);
+        return "exception occurred: " + e;
+    }
 
 }

@@ -12,13 +12,13 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class MyBeanFactoryPostRegistry implements BeanDefinitionRegistryPostProcessor {
-  @Override
-  public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry) throws BeansException {
-    System.out.println("MyBeanFactoryPostRegistry...postProcessBeanDefinitionRegistry");
-  }
+    @Override
+    public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry) throws BeansException {
+        System.out.println("MyBeanFactoryPostRegistry...postProcessBeanDefinitionRegistry");
+    }
 
-  @Override
-  public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
-    System.out.println("MyBeanFactoryPostRegistry...postProcessBeanFactory");
-  }
+    @Override
+    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
+        System.out.println("MyBeanFactoryPostRegistry...postProcessBeanFactory");
+    }
 }

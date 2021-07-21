@@ -11,12 +11,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
-  @DubboReference
-  private TickSerivce tickSerivce;
+    @DubboReference
+    private TickSerivce tickSerivce;
 
-  public String buyTicket() {
-    String ticket = tickSerivce.getTicket();
-    return "Bought the ticket for " + ticket;
-  }
+    public String buyTicket() {
+        String ticket = tickSerivce.getTicket();
+        return "Bought the ticket for " + ticket;
+    }
 
 }

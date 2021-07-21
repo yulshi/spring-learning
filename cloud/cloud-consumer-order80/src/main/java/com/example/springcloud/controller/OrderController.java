@@ -18,27 +18,27 @@ import javax.annotation.Resource;
 @Slf4j
 public class OrderController {
 
-  public static final String PAYMENT_URL = "http://CLOUD-PAYMENT-SERVICE";
+    public static final String PAYMENT_URL = "http://CLOUD-PAYMENT-SERVICE";
 
-  @Resource
-  private RestTemplate restTemplate;
+    @Resource
+    private RestTemplate restTemplate;
 
-  @GetMapping("/consumer/payment/create")
-  public CommonResult<Payment> create(Payment payment) {
-    log.info("payment being added from consumer-order: " + payment.getSerial());
-    CommonResult result = restTemplate.postForObject(PAYMENT_URL + "/payment/create", payment, CommonResult.class);
-    return result;
+    @GetMapping("/consumer/payment/create")
+    public CommonResult<Payment> create(Payment payment) {
+        log.info("payment being added from consumer-order: " + payment.getSerial());
+        CommonResult result = restTemplate.postForObject(PAYMENT_URL + "/payment/create", payment, CommonResult.class);
+        return result;
 
-  }
+    }
 
-  @GetMapping("/consumer/payment/get/{id}")
-  public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id) {
-    return restTemplate.getForObject(PAYMENT_URL + "/payment/get/" + id, CommonResult.class);
-  }
+    @GetMapping("/consumer/payment/get/{id}")
+    public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id) {
+        return restTemplate.getForObject(PAYMENT_URL + "/payment/get/" + id, CommonResult.class);
+    }
 
-  @GetMapping("/consumer/payment/zipkin")
-  public String zipkin() {
-    return restTemplate.getForObject(PAYMENT_URL + "/payment/zipkin", String.class);
-  }
+    @GetMapping("/consumer/payment/zipkin")
+    public String zipkin() {
+        return restTemplate.getForObject(PAYMENT_URL + "/payment/zipkin", String.class);
+    }
 
 }

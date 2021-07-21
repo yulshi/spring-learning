@@ -15,12 +15,12 @@ import org.springframework.stereotype.Component;
 @EnableBinding(Sink.class)
 public class MessageListenerController {
 
-  @Value("${server.port}")
-  private String serverPort;
+    @Value("${server.port}")
+    private String serverPort;
 
-  @StreamListener(Sink.INPUT)
-  public void input(Message<String> message) {
-    System.out.println("(2) Message received: " + message.getPayload() + "\tport:" + serverPort);
-  }
+    @StreamListener(Sink.INPUT)
+    public void input(Message<String> message) {
+        System.out.println("(2) Message received: " + message.getPayload() + "\tport:" + serverPort);
+    }
 
 }

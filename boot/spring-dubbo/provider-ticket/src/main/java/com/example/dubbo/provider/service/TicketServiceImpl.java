@@ -10,8 +10,8 @@ import org.springframework.stereotype.Service;
 @Service
 @DubboService
 public class TicketServiceImpl implements TickSerivce {
-  @Override
-  public String getTicket() {
-    return "Jocker";
-  }
+    @Override
+    public String getTicket() {
+        return "Jocker";
+    }
 }

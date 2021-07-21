@@ -20,79 +20,79 @@ import java.util.List;
 @RestController
 public class PaymentController {
 
-  @Value("${server.port}")
-  private String serverPort;
+    @Value("${server.port}")
+    private String serverPort;
 
-  @Resource
-  private PaymentService paymentService;
+    @Resource
+    private PaymentService paymentService;
 
-  @Resource
-  private DiscoveryClient discoveryClient;
+    @Resource
+    private DiscoveryClient discoveryClient;
 
-  @PostMapping("/payment/create")
-  public CommonResult<Integer> create(@RequestBody Payment payment) {
+    @PostMapping("/payment/create")
+    public CommonResult<Integer> create(@RequestBody Payment payment) {
 
-    log.info("payment being add in payment: " + payment.getSerial());
+        log.info("payment being add in payment: " + payment.getSerial());
 
-    int result = paymentService.create(payment);
-    log.debug("result of insertion: " + result);
+        int result = paymentService.create(payment);
+        log.debug("result of insertion: " + result);
 
-    if (result > 0) {
-      return new CommonResult<Integer>(200, "insert successfully thru " + serverPort, result);
-    } else {
-      return new CommonResult<>(444, "failed at " + serverPort);
-    }
-  }
-
-  @GetMapping("/payment/get/{id}")
-  public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id) {
-
-    Payment payment = paymentService.getPaymentById(id);
-
-    if (payment != null) {
-      return new CommonResult(200, "success thru " + serverPort, payment);
-    } else {
-      return new CommonResult<>(444, "fail to get thru " + serverPort + id);
+        if (result > 0) {
+            return new CommonResult<Integer>(200, "insert successfully thru " + serverPort, result);
+        } else {
+            return new CommonResult<>(444, "failed at " + serverPort);
+        }
     }
 
-  }
+    @GetMapping("/payment/get/{id}")
+    public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id) {
 
-  @GetMapping("/payment/lb")
-  public String serverPort() {
-    return serverPort;
-  }
+        Payment payment = paymentService.getPaymentById(id);
 
-  @GetMapping("/payment/discovery")
-  public Object discover() {
-    for (String service : discoveryClient.getServices()) {
-      log.info("service: " + service);
+        if (payment != null) {
+            return new CommonResult(200, "success thru " + serverPort, payment);
+        } else {
+            return new CommonResult<>(444, "fail to get thru " + serverPort + id);
+        }
+
     }
 
-    List<ServiceInstance> instances = discoveryClient.getInstances("cloud-payment-service");
-    for (ServiceInstance instance : instances) {
-      log.info("instance: " + instance.getHost() + ":" + instance.getPort() + "," + instance.getUri());
+    @GetMapping("/payment/lb")
+    public String serverPort() {
+        return serverPort;
     }
 
-    return discoveryClient;
+    @GetMapping("/payment/discovery")
+    public Object discover() {
+        for (String service : discoveryClient.getServices()) {
+            log.info("service: " + service);
+        }
 
-  }
+        List<ServiceInstance> instances = discoveryClient.getInstances("cloud-payment-service");
+        for (ServiceInstance instance : instances) {
+            log.info("instance: " + instance.getHost() + ":" + instance.getPort() + "," + instance.getUri());
+        }
 
-  @GetMapping("/payment/timeout")
-  public String timeout() {
+        return discoveryClient;
 
-    try {
-      Thread.sleep(3000);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
     }
 
-    return serverPort;
+    @GetMapping("/payment/timeout")
+    public String timeout() {
 
-  }
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
-  @GetMapping("/payment/zipkin")
-  public String zipkin() {
-    return "This is for testing zipkin: " + serverPort;
-  }
+        return serverPort;
+
+    }
+
+    @GetMapping("/payment/zipkin")
+    public String zipkin() {
+        return "This is for testing zipkin: " + serverPort;
+    }
 
 }

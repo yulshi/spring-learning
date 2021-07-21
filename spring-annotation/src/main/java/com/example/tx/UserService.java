@@ -13,20 +13,20 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class UserService {
 
-  private UserDao userDao;
+    private UserDao userDao;
 
-  @Autowired
-  ApplicationEventMulticaster multicaster;
+    @Autowired
+    ApplicationEventMulticaster multicaster;
 
-  public UserService(UserDao userDao) {
-    this.userDao = userDao;
-  }
+    public UserService(UserDao userDao) {
+        this.userDao = userDao;
+    }
 
-  @Transactional()
-  public void insertTemp() {
-    multicaster.multicastEvent(new ApplicationEvent("HHHHH") {
-    });
-    userDao.insert();
-    int i = 10 / 2;
-  }
+    @Transactional()
+    public void insertTemp() {
+        multicaster.multicastEvent(new ApplicationEvent("HHHHH") {
+        });
+        userDao.insert();
+        int i = 10 / 2;
+    }
 }

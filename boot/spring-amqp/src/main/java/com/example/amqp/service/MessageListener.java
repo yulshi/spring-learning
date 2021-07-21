@@ -12,9 +12,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class MessageListener {
 
-  @RabbitListener(queues = "oracle")
-  public void onMessage(Book book) {
-    System.out.println("received: " + book);
-  }
+    @RabbitListener(queues = "oracle")
+    public void onMessage(Book book) {
+        System.out.println("received: " + book);
+    }
 
 }

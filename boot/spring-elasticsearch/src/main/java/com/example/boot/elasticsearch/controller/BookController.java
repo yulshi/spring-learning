@@ -20,31 +20,31 @@ import java.util.stream.StreamSupport;
 @RestController
 public class BookController {
 
-  @Autowired
-  BookRepository bookRepository;
+    @Autowired
+    BookRepository bookRepository;
 
-  @GetMapping("/book/add")
-  public String addBook(Book book) {
+    @GetMapping("/book/add")
+    public String addBook(Book book) {
 
 //    Book book = new Book();
 //    book.setId(1);
 //    book.setName("三国演义");
 //    book.setAuthor("罗贯中");
-    bookRepository.index(book);
+        bookRepository.index(book);
 
-    return "saved";
-  }
+        return "saved";
+    }
 
-  @GetMapping("/book/query")
-  public List<Book> queryBooksInAuthor(@RequestParam("key") String keyword) {
+    @GetMapping("/book/query")
+    public List<Book> queryBooksInAuthor(@RequestParam("key") String keyword) {
 
-    QueryBuilder queryBuilder = new MatchQueryBuilder("author", keyword);
-    Iterable<Book> iterable = bookRepository.search(queryBuilder);
-    List<Book> books = StreamSupport
-            .stream(iterable.spliterator(), false)
-            .collect(Collectors.toList());
+        QueryBuilder queryBuilder = new MatchQueryBuilder("author", keyword);
+        Iterable<Book> iterable = bookRepository.search(queryBuilder);
+        List<Book> books = StreamSupport
+                .stream(iterable.spliterator(), false)
+                .collect(Collectors.toList());
 
-    return books;
-  }
+        return books;
+    }
 
 }

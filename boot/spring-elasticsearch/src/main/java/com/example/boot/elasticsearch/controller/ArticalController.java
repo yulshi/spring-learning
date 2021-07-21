@@ -23,23 +23,23 @@ import java.util.List;
 @RestController
 public class ArticalController {
 
-  private final ElasticsearchTemplate elasticsearchTemplate;
+    private final ElasticsearchTemplate elasticsearchTemplate;
 
-  public ArticalController(ElasticsearchTemplate elasticsearchTemplate) {
-    this.elasticsearchTemplate = elasticsearchTemplate;
-  }
+    public ArticalController(ElasticsearchTemplate elasticsearchTemplate) {
+        this.elasticsearchTemplate = elasticsearchTemplate;
+    }
 
-  @GetMapping("/artical/add")
-  public void addArtical(Artical artical) {
-    IndexQuery indexQuery = new IndexQueryBuilder().withObject(artical).build();
-    elasticsearchTemplate.index(indexQuery);
-  }
+    @GetMapping("/artical/add")
+    public void addArtical(Artical artical) {
+        IndexQuery indexQuery = new IndexQueryBuilder().withObject(artical).build();
+        elasticsearchTemplate.index(indexQuery);
+    }
 
-  @GetMapping("/artical/query")
-  public List<Artical> queryByContent(String key) {
-    QueryBuilder queryBuilder = new SimpleQueryStringBuilder(key);
-    SearchQuery searchQuery = new NativeSearchQueryBuilder().withQuery(queryBuilder).build();
-    List<Artical> articals = elasticsearchTemplate.queryForList(searchQuery, Artical.class);
-    return articals;
-  }
+    @GetMapping("/artical/query")
+    public List<Artical> queryByContent(String key) {
+        QueryBuilder queryBuilder = new SimpleQueryStringBuilder(key);
+        SearchQuery searchQuery = new NativeSearchQueryBuilder().withQuery(queryBuilder).build();
+        List<Artical> articals = elasticsearchTemplate.queryForList(searchQuery, Artical.class);
+        return articals;
+    }
 }
